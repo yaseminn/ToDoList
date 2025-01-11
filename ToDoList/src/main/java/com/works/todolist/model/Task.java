@@ -1,9 +1,8 @@
 package com.works.todolist.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.time.LocalDate;
 
 @Entity
 public class Task {
@@ -12,6 +11,10 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String description;
+
+    @Enumerated(EnumType.STRING)
+    private Priority priority;
+    private LocalDate date;
 
     public Long getId() {
         return id;
@@ -28,4 +31,22 @@ public class Task {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 }
+
+
