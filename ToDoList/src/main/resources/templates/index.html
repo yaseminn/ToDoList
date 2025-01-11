@@ -16,10 +16,6 @@
     <button type="submit">Add Task</button>
 </form>
 
-
-</br></br>
-<button onclick="fetchTasks()">Show All Tasks</button>
-
 <ul id="task-list">
     <li th:each="task : ${tasks}">
         <span th:text="${task.description}"></span>
@@ -28,6 +24,10 @@
         <a th:href="@{/delete/{id}(id=${task.id})}">Delete</a>
     </li>
 </ul>
+
+
+</br></br>
+<button onclick="fetchTasks()">Show All Tasks</button>
 
 <script>
     function fetchTasks(){
